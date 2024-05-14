@@ -1,0 +1,15 @@
+[remap]
+
+importer="lemon.stl.importer"
+type="Mesh"
+uid="uid://dbddvjkajwwm1"
+path="res://.godot/imported/box_ascii.stl-82fc99bd659deb706ad59402ac5792e6.mesh"
+
+[deps]
+
+source_file="res://test/box_ascii.stl"
+dest_files=["res://.godot/imported/box_ascii.stl-82fc99bd659deb706ad59402ac5792e6.mesh"]
+
+[params]
+
+my_option=false

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv0c8h3y4lndg"]
+
+[ext_resource type="Script" path="res://test/scenes/arrMeshTest.gd" id="1_v8akv"]
+[ext_resource type="ArrayMesh" uid="uid://br2x4r557eet5" path="res://test/box_bin.stl" id="2_nmjqj"]
+[ext_resource type="ArrayMesh" uid="uid://bfhnhu5h07tf3" path="res://test/ProtoRemix.stl" id="3_xaw7t"]
+[ext_resource type="Shader" path="res://shaders/wireframe.gdshader" id="4_tpwvw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lybdm"]
+render_priority = 0
+shader = ExtResource("4_tpwvw")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_v8akv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.889528, 0.456881, 0, -0.456881, 0.889528, 0, 0.875931, 1.5498)
+
+[node name="BoxBin" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.137602, 0, -0.151956, -0.0307187, 0.200767, -0.0278169, 0.148819, 0.0414418, 0.134761, 0, 0, 0)
+mesh = ExtResource("2_nmjqj")
+
+[node name="ProtoRemix" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00472977, 0.999989, 0, -0.999989, -0.00472977, 0.409347, 0, -1.55267)
+mesh = ExtResource("3_xaw7t")
+surface_material_override/0 = SubResource("ShaderMaterial_lybdm")

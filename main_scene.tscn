@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://fk4fuwt5l2gi"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_i7jl7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_52osu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_to5mn"]
+sky_top_color = Color(0, 0.360784, 0.811765, 1)
+sky_horizon_color = Color(0.541176, 0.752941, 1, 1)
+
+[sub_resource type="Sky" id="Sky_vf3lm"]
+sky_material = SubResource("ProceduralSkyMaterial_to5mn")
+
+[sub_resource type="Environment" id="Environment_wusrx"]
+background_mode = 2
+sky = SubResource("Sky_vf3lm")
+
+[node name="Main scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i7jl7")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MainMenu" type="PopupMenu" parent="MenuBar"]
+unique_name_in_owner = true
+item_count = 3
+item_0/text = "LoadModel"
+item_0/id = 0
+item_1/text = "Slice"
+item_1/id = 1
+item_2/text = "Export"
+item_2/id = 2
+
+[node name="LoadFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+mode = 2
+title = "Open a File"
+initial_position = 2
+size = Vector2i(454, 159)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.stl")
+use_native_dialog = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.89474, 0.446588, 0, -0.446588, 0.89474, 0, 1.09307, 2.47156)
+
+[node name="BuildPlate" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.999999, 0.000179499, -0.00105887, -0.000181298, 0.999998, -0.00167483, 0.00105856, 0.00167502, 0.999998, 0, 0, 0)
+mesh = SubResource("PlaneMesh_52osu")
+
+[node name="Objects" type="Node3D" parent="Node3D"]
+unique_name_in_owner = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+environment = SubResource("Environment_wusrx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(0.958028, -0.0484053, -0.282559, 0.286675, 0.161764, 0.944272, 0, -0.985642, 0.168851, 0, 4.55354, 0)
+shadow_enabled = true
+
+[connection signal="index_pressed" from="MenuBar/MainMenu" to="." method="_on_main_menu_index_pressed"]
+[connection signal="file_selected" from="LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]

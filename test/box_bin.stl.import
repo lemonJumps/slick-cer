@@ -1,0 +1,15 @@
+[remap]
+
+importer="lemon.stl.importer"
+type="Mesh"
+uid="uid://br2x4r557eet5"
+path="res://.godot/imported/box_bin.stl-dae2d4282e84ac9d7331c0cbb70ea53b.mesh"
+
+[deps]
+
+source_file="res://test/box_bin.stl"
+dest_files=["res://.godot/imported/box_bin.stl-dae2d4282e84ac9d7331c0cbb70ea53b.mesh"]
+
+[params]
+
+my_option=false
