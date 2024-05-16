@@ -55,10 +55,11 @@ use_native_dialog = true
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.89474, 0.446588, 0, -0.446588, 0.89474, 0, 1.09307, 2.47156)
+transform = Transform3D(1, 0, 0, 0, 0.89474, 0.446588, 0, -0.446588, 0.89474, 0, 1.51769, 2.47156)
 
 [node name="BuildPlate" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.999999, 0.000179499, -0.00105887, -0.000181298, 0.999998, -0.00167483, 0.00105856, 0.00167502, 0.999998, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_52osu")
 
 [node name="Objects" type="Node3D" parent="Node3D"]

@@ -1,5 +1,9 @@
 class_name STLImport
 
+signal importFinished
+
+var mesh : ArrayMesh
+
 static func load(path: String, scale = 0.01):
     var file = FileAccess.open(path, FileAccess.READ)
     if file == null:
@@ -22,6 +26,10 @@ static func load(path: String, scale = 0.01):
         file.seek(0)
         var header = file.get_buffer(80).get_string_from_utf8()
         var numberOfTriangles = file.get_32()
+
+        if numberOfTriangles > 1000000:
+            # print(numberOfTriangles)
+            push_error("number of triangles reported is over 1million, loading and performance will suffer")
 
         for i in range(numberOfTriangles):
             var normal = Vector3(file.get_float(),file.get_float(),file.get_float())
