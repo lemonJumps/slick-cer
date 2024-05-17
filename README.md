@@ -2,6 +2,7 @@
 A godot based open source slicer
 
 ### Road map:
+*striked features are not planned in near future*
 - [ ] model loading
   - [x] stl
   - [ ] other formats
@@ -36,6 +37,14 @@ A godot based open source slicer
   - [ ] brim
   - [ ] skirt
   - [ ] raft
+
+- [ ] printers
+  - [ ] reprap / coreXY
+  - [ ] delta
+  - [ ] ~~polar~~
+  - [ ] ~~belt~~
+  - [ ] SLS / resin printer
+  - [ ] gel suspension printer 
 
 - [ ] export gcode
 - [ ] printer settings

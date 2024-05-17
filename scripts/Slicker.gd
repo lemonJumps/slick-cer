@@ -12,6 +12,26 @@ func _init(mesh : Mesh, refObject : Node3D):
     tool.create_from_surface(mesh, 0)
     object = refObject
 
+func getBounds(normal : Vector3):
+    var v = tool.get_vertex(0)
+    var d = normal.dot(v)
+    var highest = v
+    var lowest = v
+    var hiD = d
+    var loD = d
+
+    for i in range(tool.get_vertex_count()):
+        v = tool.get_vertex(i)
+        d = normal.dot(v)
+        if d > hiD:
+            highest = v
+            hiD = d
+        if d < loD:
+            lowest = v
+            loD = d
+    return [highest, lowest]
+        
+
 func checkPlaneAgainstModel(normal : Vector3, offset : Vector3):
     var d = normal.dot(offset)
 
